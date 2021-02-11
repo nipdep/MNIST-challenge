@@ -6,6 +6,9 @@ __pycache__/
 #logs
 logs/
 
+# Visual Studio code
+.vscode/
+
 # Jupyter Notebook
 .ipynb_checkpoints
 
