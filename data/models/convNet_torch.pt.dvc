@@ -1,0 +1,4 @@
+outs:
+- md5: 81c14881225d331a62ed0421188c53b8
+  size: 456575
+  path: convNet_torch.pt
