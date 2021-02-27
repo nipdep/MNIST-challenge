@@ -1,5 +1,10 @@
 # To add a new cell, type '# %%'
 # To add a new markdown cell, type '# %% [markdown]'
+
+# %% [markdown]
+
+## MNIST challenge - ConvNet model : pytorch
+
 # %%
 from tqdm.notebook import tqdm
 import pandas as pd 
@@ -13,7 +18,12 @@ from torch.utils.data import Dataset, DataLoader
 from torchvision import  transforms
 
 # %%
+# activate GPU
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+
+# %% [markdown]
+## load dataset in mini-batch format by DataLoader
+
 # %%
 class MNIST(Dataset):
     def __init__(self, src_path, transform=None):
@@ -41,6 +51,7 @@ class MNIST(Dataset):
 
         return X_sub, y_sub
 
+
 # %%
 
 transformer = transforms.Compose([
@@ -51,6 +62,9 @@ dataset = MNIST('../../data/datasets/train.csv')
 batch_size = 20
 loader = DataLoader(dataset,batch_size=batch_size, shuffle=True, num_workers=0)
 
+
+# %% [markdown]
+## build ConvNet architecture
 # %%
 class ConvNet(nn.Module):
 
@@ -78,12 +92,20 @@ class ConvNet(nn.Module):
 model = ConvNet()
 model = model.to(device)
 
+# %% [markdown]
+
+## define loss function, matrics and optimization algorithm.
+
 # %%
 
 criterion = nn.CrossEntropyLoss()
 #criterion = nn.NLLLoss()
 
 optimizer = optim.SGD(model.parameters(), lr=0.0001, momentum=0.9)
+
+# %% [markdown]
+
+# train the model
 
 # %%
 
@@ -128,6 +150,9 @@ for epoch in range(epochs):
             #progress_bar.update()
 
 print('Finished Training')
+
+# %% [markdown]
+## save model results
 
 # %%
 

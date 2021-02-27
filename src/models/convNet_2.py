@@ -1,5 +1,9 @@
 # To add a new cell, type '# %%'
 # To add a new markdown cell, type '# %% [markdown]'
+# %% [markdown]
+
+## MNIST challenge - ConvNet model : tensorflow 2.3
+
 # %%
 import tensorflow as tf 
 import numpy as np 
@@ -10,6 +14,8 @@ from tensorflow.keras.optimizers import RMSprop,SGD,Adam
 from tensorflow.keras.layers import Dense,BatchNormalization,Dropout
 from tensorflow.keras.layers import Conv2D,MaxPool2D,Flatten
 
+# %% [markdown]
+### load dataset
 
 # %%
 mnist_tr_df = pd.read_csv('../../data/datasets/train.csv')
@@ -43,6 +49,8 @@ split_point = int(X_train.shape[0]*0.8)
 X_tr ,y_tr = X_train[:split_point], y_train[ :split_point]
 X_val, y_val = X_train[split_point:], y_train[ split_point:]
 
+# %% [markdown]
+### build ConvNet architecture
 
 # %%
 model = tf.keras.models.Sequential([
@@ -55,14 +63,16 @@ model = tf.keras.models.Sequential([
     Dense(10, activation='softmax')
 ])
 
-
+# %% [markdown]
+### defin loss function matrics & optimization algorithm
 # %%
 model.compile(optimizer=SGD(learning_rate=0.01),
             loss='sparse_categorical_crossentropy',
             metrics = ['accuracy']
 )
 
-
+# %% [markdown]
+### train the model
 # %%
 history = model.fit(
     X_tr, y_tr,
