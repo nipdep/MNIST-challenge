@@ -1,5 +1,5 @@
 # MNIST-challenge
- _codebases for kaggle MNIST challenge_ \
+ _codebases for kaggle MNIST challenge_ 
 
 ## environment building
  * for tensorflow framework
