@@ -84,7 +84,7 @@ class ConvNet(nn.Module):
         x = x.view(-1, 32*5*5)
         x = F.relu(self.flatten(x))
         x = F.relu(self.fc1(x))
-        #x = F.relu(self.fc2(x)) ## this is the output layer.
+        #x = F.relu(self.fc2(x))     ## this is the output layer.
         #x = F.log_softmax(x)        ## this is the logits layer.
         x = self.fc2(x)
         return x 
@@ -109,7 +109,7 @@ optimizer = optim.SGD(model.parameters(), lr=0.0001, momentum=0.9)
 
 # %%
 
-epochs = 15
+epochs = 1
 for epoch in range(epochs):
         for i, data in enumerate(loader):
             inputs, labels = data 
@@ -128,7 +128,7 @@ print('Finished Training')
 
 # %%
 
-epochs = 15
+epochs = 1
 for epoch in range(epochs):
     with tqdm(loader, unit='batch', position=0, leave=True) as progress_bar:
         for data in progress_bar:
