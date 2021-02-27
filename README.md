@@ -1,5 +1,5 @@
 # MNIST-challenge
- _codebases for kaggle MNIST challenge_ \
+ _codebases for kaggle MNIST challenge_ 
 
 ## environment building
  * for tensorflow framework
@@ -16,7 +16,7 @@
     by using docker plugin build docker container from the Dockerfile
     - in terminal \
     `Docker build -f Dockerfile -t MNIST-challenge .`
- * by Kaggle Dockerfile [ for all the frameworks]
-    (Dockerfile link)[https://github.com/Kaggle/docker-python/blob/master/Dockerfile]
+ * by Kaggle Dockerfile [ for all the frameworks] \
+    [Dockerfile link](https://github.com/Kaggle/docker-python/blob/master/Dockerfile)
 
 
